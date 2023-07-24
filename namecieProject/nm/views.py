@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def strona_startowa(request):
+    return render(request, 'namecie.pl.html')
+
+
+
+
