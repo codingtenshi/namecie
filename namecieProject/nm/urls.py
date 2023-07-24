@@ -1,9 +1,9 @@
 
 from django.urls import path, include
-from nm.views import strona_startowa, zaloguj
+from nm.views import index, login
 from . import views
 
 urlpatterns = [
-    path('', strona_startowa, name='strona_startowa'),
-    path('zaloguj/', views.zaloguj, name='zaloguj'),
+    path('', index, name='index'),
+    path('login/', views.login, name='login'),
 ]
