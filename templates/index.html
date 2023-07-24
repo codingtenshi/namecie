@@ -1,1 +1,47 @@
-<h1>this is the index</h1>
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+    <title>login</title>
+</head>
+<body>
+<div class="header d-flex flex-row-reverse p-2 m-2 border-bottom border-info justify-content-between">
+            {% if user.is_authenticated %}
+    <div>
+        <button class="btn btn btn-outline-danger">Logout</button>
+    </div>
+    <div>
+            <p>hi {{ user }}</p>
+        {% else %}
+            <a href="{% url 'account:login' %}" class="btn btn-outline-info">Login</a>
+        {% endif %}
+    </div>
+
+</div>
+<div class="container">
+    <h2>you site description</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi consequuntur debitis delectus deleniti
+        dolor doloribus dolorum eum excepturi explicabo illo in ipsam, iure maxime mollitia nostrum, officia placeat
+        praesentium quasi qui quisquam quos, reiciendis soluta tenetur unde veniam voluptate voluptatem. Asperiores
+        delectus dignissimos error, laborum quod reiciendis. Ab alias aspernatur beatae consequuntur cum dolores earum
+        eos, eveniet ex, expedita illo mollitia nam natus nemo neque odio odit officia praesentium provident quae quam
+        quibusdam quidem quis quo sed soluta sunt temporibus tenetur totam unde vero voluptas voluptatem voluptatum! Ad
+        amet asperiores in laudantium rem, saepe sapiente suscipit. Aliquid animi assumenda corporis, id ipsum placeat
+        sapiente sit! Aliquid consequatur deserunt doloribus, dolorum repellat voluptate? At, atque cumque dolore
+        dolores, eius iste laborum mollitia officia pariatur ratione rerum, voluptatum. Accusamus aspernatur, assumenda
+        blanditiis corporis debitis dignissimos, et eveniet id impedit ipsum molestias nam nobis nostrum nulla optio qui
+        quis quo reiciendis saepe sequi sit unde ut vitae voluptatem voluptates? Assumenda magni nihil odio possimus.
+        Aperiam deserunt facilis illum laboriosam laudantium, modi nemo nulla reprehenderit suscipit velit? Adipisci
+        aliquid aperiam autem, dignissimos dolor, enim, eveniet in inventore maxime minima modi nam nesciunt porro
+        repellendus sint sit voluptatum! Asperiores odio omnis quisquam recusandae tenetur!
+    </p>
+</div>
+</body>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</html>
