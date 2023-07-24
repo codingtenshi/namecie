@@ -13,7 +13,7 @@
 <div class="header d-flex flex-row-reverse p-2 m-2 border-bottom border-info justify-content-between">
             {% if user.is_authenticated %}
     <div>
-        <button class="btn btn btn-outline-danger">Logout</button>
+        <a href="{% url 'account:logout' %}" class="btn btn btn-outline-danger">Logout</a>
     </div>
     <div>
             <p>hi {{ user }}</p>
