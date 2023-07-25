@@ -1,15 +1,23 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
     <title>namecie</title>
 </head>
-<body>
-    <h1>co to jest namecie?</h1>
-    <form method="post">
-        <!-- <button type="submit">Zaloguj się</button> -->
-        <a href="{% url 'zaloguj' %}">Zaloguj się</a> 
-    </form>
+
+<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+    <div class="container mx-auto">
+        <header class="flex justify-end p-4">
+            <a href="{% url 'login' %}" class="text-blue-500 font-bold">Zaloguj się</a>
+        </header>
+        <section class="flex items-center justify-center h-screen">
+            <h1 class="text-5xl">co to jest na mecie?</h1>
+        </section>
+    </div>
 </body>
+
 </html>
