@@ -34,24 +34,36 @@ Generating a public page for the sports group.
 
     $ git clone https://github.com/codingtenshi/namecie
 
+2. Enter the cloned repozytory:
 
-2. Create and activate a virtual environment:
+    $ cd namecie/namecieProject
+
+
+2. (Optional) Create and activate a virtual environment:
 
     For macOS:
-    python -m venv venv
-    source venv/bin/activate
+    - python -m venv venv
+    - source venv/bin/activate
 
     For Windows:
-    python -m venv venv
-    venv/Scripts/activate
+    - python -m venv venv
+    - venv/Scripts/activate
 
 
-3. Install dependencies within the previously created virtual environment:
+3. Install dependencies:
 
     $ pip install -r requirements.txt
 
+4. Install Tailwind:
 
-4. Run the application server:
+    $ pip install tailwind
+
+5. Build CSS file to one:
+
+    $ pip bulid tailwind
+
+
+6. Run the application server:
 
     $ python manage.py runserver
 
