@@ -56,11 +56,11 @@ Generating a public page for the sports group.
 
 4. Install Tailwind:
 
-    $ pip install tailwind
+    $ python manage.py tailwind install
 
 5. Build CSS file to one:
 
-    $ pip bulid tailwind
+    $ python manage.py tailwind bulid 
 
 
 6. Run the application server:
