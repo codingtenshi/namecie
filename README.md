@@ -1,16 +1,17 @@
-## General Imformation and Features
+## General Information and Features:
 
-Web application for creating sports groups such as running and nordic walking. The application was built using the Django framework.
+This web application allows users to create sports groups such as running and nordic walking. 
+The application was built using the Django framework. 
 As a user, you have the following capabilities:
 
-- Registration
-- Creating or joining a sports group
-- Sending invitations to friends to join the group
-- Tracking your own sports events as well as the group's sports events
-- Adding sports events you wish to participate in
-- Generating a public page for the sports group.
+Registration
+Creating or joining a sports group
+Sending invitations to friends to join the group
+Tracking your own sports events as well as the group's sports events
+Adding sports events you wish to participate in
+Generating a public page for the sports group.
 
-## Table of Contens
+## Table of Contens:
 
 <!-- toc -->
 
@@ -20,7 +21,7 @@ As a user, you have the following capabilities:
 
 <!-- tocstop -->
 
-## Project is created witch:
+## Project is created with:
 - Python version 3.11.4
 - Django version 4.2.3
 - Django-tailwind version 3.6.0
@@ -28,7 +29,7 @@ As a user, you have the following capabilities:
 
 
 
-## Installation proces
+## Installation process:
 1. Clone the repository to your local computer:
 
     $ git clone <repository_address>
@@ -39,11 +40,11 @@ As a user, you have the following capabilities:
 
 3. Create and activate a virtual environment:
 
-    * macOS
+    For macOS:
     python -m venv venv
     source venv/bin/activate
 
-    * windows
+    For Windows:
     python -m venv venv
     venv/Scripts/activate
 
@@ -63,7 +64,7 @@ As a user, you have the following capabilities:
 ## Additional information
 
 
-While creating the project, I learned how to:
+While creating the project I learned how to:
 - manage time,
 - work with the Django framework,
 - use Github,
