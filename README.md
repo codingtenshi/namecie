@@ -32,13 +32,10 @@ Generating a public page for the sports group.
 ## Installation process:
 1. Clone the repository to your local computer:
 
-    $ git clone <repository_address>
+    $ git clone https://github.com/codingtenshi/namecie
 
-2. Check your Python version by typing in the terminal:
 
-    $ python –-version 
-
-3. Create and activate a virtual environment:
+2. Create and activate a virtual environment:
 
     For macOS:
     python -m venv venv
@@ -49,22 +46,19 @@ Generating a public page for the sports group.
     venv/Scripts/activate
 
 
-4. Install dependencies within the previously created virtual environment:
+3. Install dependencies within the previously created virtual environment:
 
     $ pip install -r requirements.txt
 
-5. Configure the database in the terminal:
 
-    $ python manage.py migrate
-
-6. Run the application server:
+4. Run the application server:
 
     $ python manage.py runserver
 
-## Additional information
+## Additional information:
 
 
 While creating the project I learned how to:
 - manage time,
 - work with the Django framework,
-- use Github,
+- use Github
