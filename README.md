@@ -15,8 +15,8 @@ Generating a public page for the sports group.
 
 <!-- toc -->
 
-- [Project is created witch:](#project-is-created-witch)
-- [Installation proces](#installation-proces)
+- [Project is created with:](#project-is-created-with)
+- [Installation process:](#installation-process)
 - [Additional information](#additional-information)
 
 <!-- tocstop -->
