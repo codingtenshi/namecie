@@ -138,5 +138,5 @@ AUTHENTICATION_BACKENDS = [
     "django_ory_auth.backend.OryBackend",
 ]
 
-ORY_SDK_URL=env("ORY_SDK_URL", default='//https://angry-brattain-gtfy93w28k.projects.oryapis.com')
+ORY_SDK_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com')
 ORY_UI_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com/ui')
