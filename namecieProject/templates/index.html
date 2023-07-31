@@ -9,15 +9,34 @@
     <title>namecie</title>
 </head>
 
-<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-    <div class="container mx-auto">
-        <header class="flex justify-end p-4">
-            <a href="{% url 'login' %}" class="text-blue-500 font-bold">Zaloguj się</a>
-        </header>
-        <section class="flex items-center justify-center h-screen">
-            <h1 class="text-5xl">co to jest na mecie?</h1>
-        </section>
+<body>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" href="">My Profile</a>
+            </li>
+            <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" href="{{ logout_url }}">Sign Out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a id="sign-up-link" class="nav-link" href="{{ signup_url }}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a id="log-in-link" class="nav-link" href="{{ login_url }}">Sign In</a>
+            </li>
+            {% endif %}
+        </ul>
     </div>
+    <section class="flex items-center justify-center h-screen">
+        <h1 class="text-5xl">co to jest na mecie?</h1>
+    </section>
+    </div> -->
+
 </body>
 
 </html>
