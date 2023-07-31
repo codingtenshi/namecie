@@ -48,16 +48,19 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
     'django_ory_auth',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_ory_auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
@@ -69,6 +72,7 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -142,4 +146,4 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 ORY_SDK_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com')
-ORY_UI_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com/ui')
+ORY_UI_URL=env("ORY_UI_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com/ui')

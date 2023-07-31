@@ -29,18 +29,18 @@ Generating a public page for the sports group.
 
 
 
-## Installation process:
+## Project installation:
+
 1. Clone the repository to your local computer:
-
+    ```
     $ git clone https://github.com/codingtenshi/namecie
-
-2. Enter the cloned repozytory:
-
+    ```
+1. Enter the cloned repozytory:
+    ```
     $ cd namecie/namecieProject
-
-
-2. (Optional) Create and activate a virtual environment:
-
+    ```
+1. (Optional) Create and activate a virtual environment:
+    ```
     For macOS:
     - python -m venv venv
     - source venv/bin/activate
@@ -48,24 +48,45 @@ Generating a public page for the sports group.
     For Windows:
     - python -m venv venv
     - venv/Scripts/activate
-
-
-3. Install dependencies:
-
+    ```
+1. Install dependencies:
+    ```
     $ pip install -r requirements.txt
-
-4. Install Tailwind:
-
+    ```
+1. Install Tailwind:
+    ```
     $ python manage.py tailwind install
-
-5. Build CSS file to one:
-
+    ```
+1. Build CSS file to one:
+    ```
     $ python manage.py tailwind bulid 
-
-
-6. Run the application server:
-
+    ```
+1. Run the application server:
+    ```
+    $ python manage.py migrate
+    ```
+1. Run the application server:
+    ```
     $ python manage.py runserver
+    ```
+
+## Development:
+
+> You need to have two active terminal sessions.
+
+1. In first terminal session start application:
+    ```bash
+    export ORY_SDK_URL=http://localhost:4000/.ory
+    export ORY_UI_URL=http://localhost:4000/.ory/ui
+    python manage.py runserver
+    ```
+1. In second terminal session start Ory proxy (you need to install Ory CLI to do it):
+    ```bash
+    # SDK address is what you get from Ory Console when you create a project
+    export ORY_SDK_URL=https://angry-brattain-gtfy93w28k.projects.oryapis.com
+    ory proxy http://localhost:8000
+    ```
+1. In browser open `http://localhost:4000/`
 
 ## Additional information:
 
