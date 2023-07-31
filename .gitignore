@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 venv
 db.sqlite3
-.DS_Store
+.DS_Store.env
 
 # C extensions
 *.so
