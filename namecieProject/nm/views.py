@@ -19,8 +19,7 @@ def my_profile(request):
         'first_name' : traits.get('first_name', None),
         'last_name' : traits.get('last_name', None),
         'email' : traits.get('email', None),
-        'picture' : traits.get('picture', None),
-       
+        'picture' : traits.get('picture', None),   
     }
     return render(request, 'my_profile.html', context)
 

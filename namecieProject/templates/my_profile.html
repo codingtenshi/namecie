@@ -1,4 +1,4 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +10,18 @@
 </head>
 
 <body>
-
-    <h1>Witaj {{ first_name }}!</h1>
-
-
+    <div class="overflow-hidden text-lg lg:text-xl flex items-center justify-center h-2/5">
+        <h1 class="text-50xl">Witaj {{ first_name }}!</h1>
+    </div>
+    <div class="overflow-hidden flex justify-center items-center h-screen">
+        <img src="{{ picture }}" alt="Your profile picture" class="w-32 h-32" >
+    </div>
+    <div>
+        <ul>
+            <li>Imię i nazwisko: {{ first_name }} {{ last_name}}</li>
+            <li>Email: {{ email }}</li>
+        </ul>
+    </div>
 
 </body>
 
