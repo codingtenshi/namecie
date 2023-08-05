@@ -1,0 +1,6 @@
+This documentation will provide a step-by-step overview of how to use the ORY authentication system in a Django project.
+
+
+## ORY authentication for Django
+
+While writing this documentation, I assumed that as a reader interested in the topic, you have already created your project in Django, and the next step will be to utilize the capabilities provided by the ORY service.
