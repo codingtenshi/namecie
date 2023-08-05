@@ -1,0 +1,51 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+    <title>Mój profil</title>
+</head>
+
+<body>
+    <div class="scroll-mt-5 flex text-center">
+        <div class="max-w-screen-xl px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="px-2 mt-20 mb-24">
+                <div class="flex flex-col">
+                    <h1 class="font-bold mb-10 text-xl text-heading-xl">
+                        Witaj {{ first_name }}!
+                    </h1>
+                    <div class="flex justify-center">
+                        <img src="{{ picture }}" alt="Your profile picture" class=" w-32 h-32">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="flex flex-col mt-24">
+                    <div>
+                        <ul>
+                            <li>Imię i nazwisko: {{ first_name }} {{ last_name}}</li>
+                            <li>Email: {{ email }}</li>
+                        </ul>
+                    </div>
+                    <form action="/save_form_data/" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="display_name">Nazwa użytkownika</label>
+                            <input type="text" id="display_name" name="display_name" class="form-control">
+                        </div>
+                        <div class="mb-4">
+                            <label for="description">Opis</label>
+                            <textarea id="description" name="description" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Zapisz</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

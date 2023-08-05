@@ -4,12 +4,12 @@ This web application allows users to create sports groups such as running and no
 The application was built using the Django framework. 
 As a user, you have the following capabilities:
 
-Registration
-Creating or joining a sports group
-Sending invitations to friends to join the group
-Tracking your own sports events as well as the group's sports events
-Adding sports events you wish to participate in
-Generating a public page for the sports group.
+- Registration
+- Creating or joining a sports group
+- Sending invitations to friends to join the group
+- Tracking your own sports events as well as the group's sports events
+- Adding sports events you wish to participate in
+- Generating a public page for the sports group.
 
 ## Table of Contens:
 
@@ -59,7 +59,7 @@ Generating a public page for the sports group.
     ```
 1. Build CSS file to one:
     ```
-    $ python manage.py tailwind bulid 
+    $ python manage.py tailwind build 
     ```
 1. Run the application server:
     ```
@@ -78,6 +78,7 @@ Generating a public page for the sports group.
     ```bash
     export ORY_SDK_URL=http://localhost:4000/.ory
     export ORY_UI_URL=http://localhost:4000/.ory/ui
+    export LOGIN_URL=http://localhost:4000/.ory/ui/login
     python manage.py runserver
     ```
 1. In second terminal session start Ory proxy (you need to install Ory CLI to do it):

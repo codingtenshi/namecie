@@ -31,5 +31,6 @@ urlpatterns = [
     path('', include('nm.urls')),
     path('__reload__/', include('django_browser_reload.urls', namespace='django_browser_reload')),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    path('', TemplateView.as_view(template_name='my_profile'), name='my_profile'),
 ]
 
