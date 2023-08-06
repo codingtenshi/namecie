@@ -38,7 +38,7 @@ def save(request):
         profile.display_name = data['display_name']
         profile.description = data['description']
         profile.save()
-        return redirect ('/my_profile/')
+        return redirect ('/')
     else:
         return render(request, 'my_profile.http')
 
