@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
-    #'django_ory_auth',
+    'django_ory_auth',
     'debug_toolbar',
 ]
 
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'django_ory_auth.middleware.AuthenticationMiddleware',
+    'django_ory_auth.middleware.AuthenticationMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -78,7 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #'django_ory_auth.context.processor',
+                'django_ory_auth.context.processor',
             ],
         },
     },
@@ -133,6 +133,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = 'my_media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -143,8 +145,8 @@ TAILWIND_APP_NAME = 'theme'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    #'django_ory_auth.backend.OryBackend',
+    'django_ory_auth.backend.OryBackend',
 ]
 
-#ORY_SDK_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com')
-#ORY_UI_URL=env("ORY_UI_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com/ui')
+ORY_SDK_URL=env("ORY_SDK_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com')
+ORY_UI_URL=env("ORY_UI_URL", default='https://angry-brattain-gtfy93w28k.projects.oryapis.com/ui')

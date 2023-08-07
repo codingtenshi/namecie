@@ -13,7 +13,7 @@
 
     <div class="navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            {{ request.user }}
+            {{ display_name }}
             {% if request.user.is_authenticated %}
             <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
