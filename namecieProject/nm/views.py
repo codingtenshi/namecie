@@ -4,11 +4,22 @@ import requests
 from django.urls import reverse
 from django.http import HttpResponse
 from .models import Profile
+from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return render(request, 'index.html')
+    try:
+        profile = Profile.objects.get(user_id=request.user)
+        display_name = profile.display_name
+    except Profile.DoesNotExist:
+        display_name = "Nie znaleziono profilu"
 
+    context = {
+        'display_name': display_name,
+    }
 
+    return render(request, 'index.html', context)
+
+@login_required # A user who is not logged in will be redirected to the login page before seeing his profile
 def my_profile(request):
     sdk_url = settings.ORY_SDK_URL
     sess = requests.get(
@@ -37,6 +48,7 @@ def save(request):
         profile = Profile()
         profile.display_name = data['display_name']
         profile.description = data['description']
+        profile.user_id = request.user
         profile.save()
         return redirect ('/')
     else:
