@@ -1,20 +1,18 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 import requests
-
 from .models import Profile
 from django.contrib.auth.decorators import login_required
+from .modules.profile import get_user_info
 
 def index(request):
-    try:
-        profile = Profile.objects.get(user_id=request.user)
-        display_name = profile.display_name
-    except Profile.DoesNotExist:
-        display_name = "Nie znaleziono profilu"
+    user_info = get_user_info(request.user)
 
     context = {
-        'display_name': display_name,
+        'display_name': user_info['display_name'],
     }
+
+
 
     return render(request, 'index.html', context)
 
@@ -26,24 +24,17 @@ def my_profile(request):
             cookies=request.COOKIES
         )
     traits = sess.json().get('identity', {}).get('traits', None)
-
-    try:
-        profile = Profile.objects.get(user_id=request.user)
-        display_name = profile.display_name
-        description = profile.description
-    except Profile.DoesNotExist:
-        display_name = "Nie znaleziono profilu"
-        description = "Nie znaleziono opisu"
     
-        
+    user_info = get_user_info(request.user)
+    
     context = {
         'user': request.user,
         'first_name' : traits.get('first_name', None),
         'last_name' : traits.get('last_name', None),
         'email' : traits.get('email', None),
         'picture' : traits.get('picture', None), 
-        'display_name': display_name,
-        'description': description  
+        'display_name': user_info['display_name'],
+        'description': user_info['description']  
     }
     return render(request, 'my_profile.html', context)
 
