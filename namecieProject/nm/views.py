@@ -3,22 +3,24 @@ from django.conf import settings
 import requests
 from .models import Profile
 from django.contrib.auth.decorators import login_required
-from .modules.profile import get_user_info, save_user_info
 
 def index(request):
     is_registration = request.GET.get('registration')
     
     if is_registration == "true":
-        save_user_info(request)
-        user_info = get_user_info(request.user)
-        display_name = user_info['full_name']
+        profile = Profile()
+        profile.save_user_info(request)
+        user_info = Profile.objects.get(user_id=request.user)
+        display_name = user_info.full_name
     else:
-        user_info = get_user_info(request.user)
-        display_name = user_info['display_name']
+        try: 
+            user_info = Profile.objects.get(user_id=request.user)
+            display_name = user_info.display_name
+        except:
+            display_name = ''
 
 
     context = {
-        # 'display_name': user_info['display_name'],
         'display_name': display_name,
     }
 
@@ -26,17 +28,19 @@ def index(request):
 
 @login_required # A user who is not logged in will be redirected to the login page before seeing his profile
 def my_profile(request):
-    user_info = get_user_info(request.user)
+    user_info = Profile.objects.get(user_id=request.user)
     
+
+
     context = {
         'user': request.user,
-        'first_name' : user_info['first_name'],
-        'last_name' : user_info['last_name'],
-        'full_name' : user_info['full_name'],
-        'email' : user_info['email'],
-        'image' : user_info['image'], 
-        'display_name': user_info['display_name'],
-        'description': user_info['description']  
+        'first_name' : user_info.first_name,
+        'last_name' : user_info.last_name,
+        'full_name' : user_info.full_clean,
+        'email' : user_info.email,
+        'image' : user_info.image, 
+        'display_name': user_info.display_name or '',
+        'description': user_info.description 
     }
     return render(request, 'my_profile.html', context)
 
@@ -54,8 +58,3 @@ def save(request):
         return redirect ('/')
     else:
         return render(request, 'my_profile.http')
-
-
-
-
-
