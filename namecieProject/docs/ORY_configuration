@@ -4,3 +4,26 @@ This documentation will provide a step-by-step overview of how to use the ORY au
 ## ORY authentication for Django
 
 While writing this documentation, I assumed that as a reader interested in the topic, you have already created your project in Django, and the next step will be to utilize the capabilities provided by the ORY service.
+
+How to delete user from ORY?
+- From Identities ->Identity Data copy ID
+- From Projects -> Switch Project copy Slug
+- In the terminal use the command: ory delete identity <id>  --project <slug>
+ID      19fd8e8e-e17c-42be-9c0e-ad1bc0407f62
+
+oory delete identity afc4d25d-1dd8-4086-86c5-1a98ae50818a  --project angry-brattain-gtfy93w28k
+
+
+
+
+How to delete records in a database?
+- sqlite3 db.sqlite3
+- SELECT * FROM nm_profile; (59f37e17-6627-4181-aa8b-b16e9a116e83|||Karina|Gornicka|Karina Gornicka|karina.gornicka@gmail.com|)
+- DELETE FROM nm_profile;
+- SELECT * FROM nm_profile;
+
+
+
+
+
+
