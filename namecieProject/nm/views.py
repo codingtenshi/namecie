@@ -1,16 +1,24 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 import requests
-
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    try:
-        profile = Profile.objects.get(user_id=request.user)
-        display_name = profile.display_name
-    except Profile.DoesNotExist:
-        display_name = "Nie znaleziono profilu"
+    is_registration = request.GET.get('registration')
+    
+    if is_registration == "true":
+        profile = Profile()
+        profile.save_user_info(request)
+        user_info = Profile.objects.get(user_id=request.user)
+        display_name = user_info.full_name
+    else:
+        try: 
+            user_info = Profile.objects.get(user_id=request.user)
+            display_name = user_info.display_name
+        except:
+            display_name = ''
+
 
     context = {
         'display_name': display_name,
@@ -20,30 +28,19 @@ def index(request):
 
 @login_required # A user who is not logged in will be redirected to the login page before seeing his profile
 def my_profile(request):
-    sdk_url = settings.ORY_SDK_URL
-    sess = requests.get(
-            f"{sdk_url}/sessions/whoami",
-            cookies=request.COOKIES
-        )
-    traits = sess.json().get('identity', {}).get('traits', None)
-
-    try:
-        profile = Profile.objects.get(user_id=request.user)
-        display_name = profile.display_name
-        description = profile.description
-    except Profile.DoesNotExist:
-        display_name = "Nie znaleziono profilu"
-        description = "Nie znaleziono opisu"
+    user_info = Profile.objects.get(user_id=request.user)
     
-        
+
+
     context = {
         'user': request.user,
-        'first_name' : traits.get('first_name', None),
-        'last_name' : traits.get('last_name', None),
-        'email' : traits.get('email', None),
-        'picture' : traits.get('picture', None), 
-        'display_name': display_name,
-        'description': description  
+        'first_name' : user_info.first_name,
+        'last_name' : user_info.last_name,
+        'full_name' : user_info.full_clean,
+        'email' : user_info.email,
+        'image' : user_info.image, 
+        'display_name': user_info.display_name or '',
+        'description': user_info.description 
     }
     return render(request, 'my_profile.html', context)
 
@@ -54,16 +51,10 @@ def save(request):
             'display_name': request.POST['display_name'],
             'description': request.POST['description'],
         }       
-        profile = Profile()
+        profile = Profile.objects.get(user_id=request.user)
         profile.display_name = data['display_name']
         profile.description = data['description']
-        profile.user_id = request.user
         profile.save()
         return redirect ('/')
     else:
         return render(request, 'my_profile.http')
-
-
-
-
-
