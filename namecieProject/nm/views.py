@@ -29,13 +29,8 @@ def index(request):
 @login_required # A user who is not logged in will be redirected to the login page before seeing his profile
 def my_profile(request):
     user_info = Profile.objects.get(user_id=request.user)
-
-    # teams_names = ''
-    # for team_id in user_info.teams {
-    #     teams_names += Teams.objects.get(team_id=team_id) + ','
-    # }
-    # teams = Teams.objects.get(team_id=user_info.teams)
-
+    teams_admin = user_info.teams_admin.all();
+    teams_admin_names = ', '.join([team.name for team in teams_admin])
 
     context = {
         'user': request.user,
@@ -45,7 +40,8 @@ def my_profile(request):
         'email' : user_info.email,
         'image' : user_info.image, 
         'display_name': user_info.display_name or '',
-        'description': user_info.description 
+        'description': user_info.description,
+        'teams_admin': teams_admin_names,
     }
     return render(request, 'my_profile.html', context)
 

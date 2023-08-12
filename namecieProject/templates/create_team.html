@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <p>chyba się udało</p>
+    <p>Tworzenie zespołu!</p>
+    <form action="{% url 'save_team' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Zapisz zespół</button>
+    </form>
 </body>
 </html>
