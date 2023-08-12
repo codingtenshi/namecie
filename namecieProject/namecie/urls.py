@@ -33,5 +33,6 @@ urlpatterns = [
     path('__reload__/', include('django_browser_reload.urls', namespace='django_browser_reload')),
     path('', TemplateView.as_view(template_name='index.html'), name='home'),
     path('my_profile/', TemplateView.as_view(template_name='my_profile'), name='my_profile'),
+    path('teams/', include('teams.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
