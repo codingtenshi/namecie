@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'django_ory_auth',
     'debug_toolbar',
+    'teams',
 ]
 
 MIDDLEWARE = [

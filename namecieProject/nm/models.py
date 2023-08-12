@@ -33,4 +33,4 @@ class Profile(models.Model):
         self.email = traits.get('email')
         self.user_id = request.user
         self.save()
-    
+        
